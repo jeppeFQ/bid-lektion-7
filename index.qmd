@@ -39,16 +39,18 @@ format:
           </style>
 ---
 
+## Dagens program 
+
+* Softwaredesign og -modellering
+* Workshop
 
 ## Softwaredesign: Formål iht. kodning
 
-Når vi taler om softwaredesign, taler vi egentlig om hvordan vi planlægger og organiserer vores kode, før vi skriver den eller mens vi skriver den. 
+> Når vi taler om softwaredesign, taler vi om hvordan vi planlægger og organiserer vores kode, før vi skriver den eller mens vi skriver den. 
 
-Det primære formål er at gøre din kode begribelig for andre mennesker, inklusive dit fremtidige jeg.
-
-Når koden er organiseret logisk, kan du lettere genbruge dele af den i nye projekter. 
-
-Et godt design gør det også meget lettere at samarbejde. Hvis tre personer skal arbejde på samme program, og alle skriver kode på vidt forskellige måder, bliver det hurtigt kaos. Med klare designprincipper ved alle hvordan tingene skal struktureres.
+* Det primære formål er at gøre din kode begribelig for andre mennesker, **inklusive dit fremtidige jeg**.
+* Når koden er organiseret logisk, kan du lettere genbruge dele af den i nye projekter. 
+* Et godt design gør det også meget lettere at samarbejde. Hvis tre personer skal arbejde på samme program, og alle skriver kode på vidt forskellige måder, bliver det hurtigt kaos. Med klare designprincipper ved alle hvordan tingene skal struktureres.
 
 ---
 
@@ -67,6 +69,8 @@ Et godt design gør det også meget lettere at samarbejde. Hvis tre personer ska
 
 ---
 
+::: {style="display: flex; justify-content: center; align-items: center;"}
+::: {style="font-size: 1.0em;"}
 ```{python}
 #| eval: false
 #| echo: true
@@ -76,7 +80,13 @@ def b(k):
     for i in k:s+=i
     return s/len(k)
 ```
+:::
+:::
 
+<br>
+
+::: {style="display: flex; justify-content: center; align-items: center;"}
+::: {style="font-size: 1.0em;"}
 ```{python}
 #| eval: false
 #| echo: true
@@ -88,10 +98,14 @@ def beregn_gennemsnit(karakterer):
     gennemsnit = total / antal
     return gennemsnit
 ```
+:::
+:::
+
+# Design-principper: *Guidelines ikke love*
 
 ## DRY (Don't Repeat Yourself)
 
-Dette princip handler om at undgå at skrive den samme kode flere gange. Hver gang du kopierer kode, skaber du problemer for fremtiden. Hvis du finder en fejl i den kopierede kode, skal du huske at rette den alle steder.
+Undgå at skrive den samme kode flere gange. Hver gang du kopierer kode, skaber du problemer for fremtiden. Hvis du finder en fejl i den kopierede kode, skal du huske at rette den alle steder.
 
 ::: {style="display: flex; justify-content: center; align-items: center;"}
 ::: {style="font-size: 1.0em;"}
@@ -109,9 +123,13 @@ def beregn_løn_manager(timer, timeløn):
     bonus = grundløn * 0.15
     return grundløn + bonus
 ```
+:::
+:::
 
 <br>
 
+::: {style="display: flex; justify-content: center; align-items: center;"}
+::: {style="font-size: 1.0em;"}
 ```{python}
 #| eval: false
 #| echo: true
@@ -125,13 +143,9 @@ def beregn_løn(timer, timeløn, bonus_procent):
 :::
 :::
 
-
 ## Separation of Concerns
 
-Hver funktion har ét ansvar!
-
-Dette princip handler om at hver del af dit program skal have ét klart ansvar. Det er som at organisere dit køkken: knive i én skuffe, tallerkener i ét skab, og madvarer i køleskabet. Du blander ikke tingene sammen.
-
+Hver del af dit program skal have ét klart ansvar. Det er som at organisere dit køkken: knive i én skuffe, tallerkener i ét skab, og madvarer i køleskabet. Du blander ikke tingene sammen.
 
 ::: {style="display: flex; justify-content: center; align-items: center;"}
 ::: {style="font-size: 1.0em;"}
@@ -155,6 +169,8 @@ def haandter_person():
 ```
 :::
 :::
+
+<br>
 
 ::: {style="display: flex; justify-content: center; align-items: center;"}
 ::: {style="font-size: 1.0em;"}
@@ -194,14 +210,12 @@ def main():
 :::
 :::
 
-
-
 ## KISS (Keep It Simple, Stupid)
 
-> Hold løsninger simple
+Gør ikke tingene mere komplicerede end nødvendigt. Begyndere har ofte en tendens til at skrive meget kompleks kode for at virke smarte, men **den bedste kode er faktisk den simpleste kode der løser problemet**.
 
-Dette princip minder os om ikke at gøre tingene mere komplicerede end nødvendigt. Begyndere har ofte en tendens til at skrive meget kompleks kode for at virke smarte, men den bedste kode er faktisk den simpleste kode der løser problemet.
-
+::: {style="display: flex; justify-content: center; align-items: center;"}
+::: {style="font-size: 1.0em;"}
 ```{python}
 #| eval: false
 #| echo: true
@@ -209,7 +223,13 @@ Dette princip minder os om ikke at gøre tingene mere komplicerede end nødvendi
 def find_stoerste(tal_liste):
     return sorted(tal_liste, reverse=True)[0] if tal_liste and isinstance(tal_liste, list) and all(isinstance(x, (int, float)) for x in tal_liste) else None
 ```
+:::
+:::
 
+<br>
+
+::: {style="display: flex; justify-content: center; align-items: center;"}
+::: {style="font-size: 1.0em;"}
 ```{python}
 #| eval: false
 #| echo: true
@@ -220,9 +240,13 @@ def find_stoerste(tal_liste):
         return None
     return max(tal_liste)
 ```
+:::
+:::
 
 ---
 
+::: {style="display: flex; justify-content: center; align-items: center;"}
+::: {style="font-size: 1.0em;"}
 ```{python}
 #| eval: false
 #| echo: true
@@ -230,7 +254,13 @@ def find_stoerste(tal_liste):
 def er_lige(tal):
     return True if tal % 2 == 0 else False
 ```
+:::
+:::
 
+<br>
+
+::: {style="display: flex; justify-content: center; align-items: center;"}
+::: {style="font-size: 1.0em;"}
 ```{python}
 #| eval: false
 #| echo: true
@@ -238,14 +268,15 @@ def er_lige(tal):
 def er_lige(tal):
     return tal % 2 == 0
 ```
+:::
+:::
 
 ## YAGNI (You Aren't Gonna Need It)
 
-Dette princip advarer mod at bygge funktionalitet "bare i tilfælde af". Mange begyndere tænker: "Måske skal jeg kunne gemme data i både en fil OG en database OG sende det over internettet", og så bygger de alle tre systemer selvom de kun har brug for én.
+Byg ikke funktionalitet "bare i tilfælde af". Lad være med at tænke: "Måske skal jeg kunne gemme data i både en fil OG en database OG sende det over internettet", og bygger så alle tre systemer selvom vi kun har brug for ét.
 
-
-> Implementer kun det du har brug for nu
-
+::: {style="display: flex; justify-content: center; align-items: center;"}
+::: {style="font-size: 1.0em;"}
 ```{python}
 #| eval: false
 #| echo: true
@@ -268,7 +299,13 @@ class Person:
         # Har ikke email-funktionalitet, men bygger strukturen
         pass
 ```
+:::
+:::
 
+<br>
+
+::: {style="display: flex; justify-content: center; align-items: center;"}
+::: {style="font-size: 1.0em;"}
 ```{python}
 #| eval: false
 #| echo: true
@@ -283,292 +320,11 @@ class Person:
 
 # Når vi faktisk HAR brug for mere, tilføjer vi det
 ```
-
-## SOLID principperne
-
-S - Single Responsibility Principle (Enkelt Ansvars-princippet)Dette princip siger at hver klasse skal have præcis ét ansvar eller én grund til at ændre sig. Hvis en klasse håndterer både gemning af data og beregning af statistik, har den to ansvarsområder. Det betyder at hvis du senere skal ændre hvordan data gemmes, risikerer du at påvirke statistikberegningerne.Tænk på det som specialisering i et køkken. Kokken laver mad, opvaskeren vasker op, og tjeneren serverer. Ingen af dem gør alle tre ting, fordi det ville skabe forvirring og ineffektivitet.
-
----
-
-```{python}
-#| eval: false
-#| echo: true
-# Dårligt: Klassen har for mange ansvarsområder
-class Elev:
-    def __init__(self, navn, karakterer):
-        self.navn = navn
-        self.karakterer = karakterer
-    
-    def beregn_gennemsnit(self):
-        return sum(self.karakterer) / len(self.karakterer)
-    
-    def gem_i_database(self):
-        # Gemmer eleven i databasen
-        pass
-    
-    def send_email_til_foraeldre(self):
-        # Sender email
-        pass
-```
-
-```{python}
-#| eval: false
-#| echo: true
-# Godt: Hver klasse har ét ansvar
-class Elev:
-    def __init__(self, navn, karakterer):
-        self.navn = navn
-        self.karakterer = karakterer
-    
-    def beregn_gennemsnit(self):
-        # Ansvar: Håndtere elevens data og beregninger
-        return sum(self.karakterer) / len(self.karakterer)
-
-class ElevRepository:
-    def gem(self, elev):
-        # Ansvar: Håndtere persistering af data
-        pass
-
-class EmailService:
-    def send_til_foraeldre(self, elev, besked):
-        # Ansvar: Håndtere email-kommunikation
-        pass
-```
-
----
-
-O - Open/Closed Principle (Åben/Lukket-princippet)
-Dette princip fortæller os at klasser skal være åbne for udvidelse men lukkede for modification. Med andre ord skal du kunne tilføje ny funktionalitet uden at ændre eksisterende kode. Dette lyder måske forvirrende, men idéen er at når du har testet og verificeret at noget virker, bør du ikke røre ved den kode igen.
-I stedet for at ændre en eksisterende klasse, laver du en ny klasse der udvider den. Det er lidt som at bygge videre på et hus ved at tilføje en ny etage i stedet for at rive vægge ned og bygge om.
-
----
-
-```{python}
-#| eval: false
-#| echo: true
-# Dårligt: Hver gang vi tilføjer en ny type, skal vi ændre beregn_areal
-class ArealBeregner:
-    def beregn_areal(self, form):
-        if form.type == "cirkel":
-            return 3.14 * form.radius ** 2
-        elif form.type == "rektangel":
-            return form.bredde * form.hoejde
-        # Hver gang vi tilføjer en ny form, skal vi ændre denne metode!
-
-# Godt: Vi kan tilføje nye former uden at ændre eksisterende kode
-class Form:
-    def beregn_areal(self):
-        pass  # Dette er en abstrakt metode
-```
-
-```{python}
-#| eval: false
-#| echo: true
-class Cirkel(Form):
-    def __init__(self, radius):
-        self.radius = radius
-    
-    def beregn_areal(self):
-        # Hver form ved hvordan den selv beregner sit areal
-        return 3.14 * self.radius ** 2
-
-class Rektangel(Form):
-    def __init__(self, bredde, hoejde):
-        self.bredde = bredde
-        self.hoejde = hoejde
-    
-    def beregn_areal(self):
-        return self.bredde * self.hoejde
-
-# Ny form kan tilføjes uden at ændre noget eksisterende
-class Trekant(Form):
-    def __init__(self, grundlinje, hoejde):
-        self.grundlinje = grundlinje
-        self.hoejde = hoejde
-    
-    def beregn_areal(self):
-        return 0.5 * self.grundlinje * self.hoejde
-```
-
----
-
-L - Liskov Substitution Principle (Liskov Substitutions-princippet)
-Dette princip, opkaldt efter Barbara Liskov, siger at du skal kunne erstatte et objekt af en forældreklasse med et objekt af en børneklasse uden at programmet går i stykker. Hvis du har en funktion der arbejder med en Fugl-klasse, skal den også kunne arbejde med en And-klasse der arver fra Fugl, uden problemer.
-Det klassiske eksempel på brud på dette princip er firkant-rektangel problemet. En firkant er teknisk set et specielt rektangel, men hvis vi modellerer det direkte, kan det give problemer.
-
----
-
-```{python}
-#| eval: false
-#| echo: true
-# Dårligt: Bryder Liskov Substitution
-class Rektangel:
-    def __init__(self, bredde, hoejde):
-        self.bredde = bredde
-        self.hoejde = hoejde
-    
-    def sæt_bredde(self, bredde):
-        self.bredde = bredde
-    
-    def sæt_hoejde(self, hoejde):
-        self.hoejde = hoejde
-    
-    def beregn_areal(self):
-        return self.bredde * self.hoejde
-
-class Firkant(Rektangel):
-    def sæt_bredde(self, bredde):
-        # En firkant skal have samme bredde og højde
-        self.bredde = bredde
-        self.hoejde = bredde  # Dette bryder forventningen!
-    
-    def sæt_hoejde(self, hoejde):
-        self.bredde = hoejde
-        self.hoejde = hoejde
-
-# Dette vil give uventede resultater
-def test_rektangel(r):
-    r.sæt_bredde(5)
-    r.sæt_hoejde(4)
-    # Vi forventer areal = 20
-    print(f"Areal: {r.beregn_areal()}")
-
-# Virker fint med Rektangel
-test_rektangel(Rektangel(0, 0))  # Output: Areal: 20
-
-# Giver forkert resultat med Firkant!
-test_rektangel(Firkant(0, 0))  # Output: Areal: 16 (ikke 20!)
-```
-
----
-
-I - Interface Segregation Principle (Interface Adskillelse-princippet)
-Dette princip fortæller os at ingen klasse skal tvinges til at implementere metoder den ikke bruger. Det er bedre at have mange specifikke interfaces end ét stort interface der forsøger at dække alt. Tænk på det som at have specialiserede værktøjer i stedet for én schweizer-lommekniv der skal kunne gøre alt.
-
-```{python}
-#| eval: false
-#| echo: true
-# Dårligt: Stort interface tvinger klasser til at implementere ubrugte metoder
-class Arbejder:
-    def arbejde(self):
-        pass
-    
-    def spise_frokost(self):
-        pass
-    
-    def få_løn(self):
-        pass
-
-class Robot(Arbejder):
-    def arbejde(self):
-        print("Robot arbejder")
-    
-    def spise_frokost(self):
-        # En robot spiser ikke! Men vi er tvunget til at implementere dette
-        pass
-    
-    def få_løn(self):
-        # En robot får ikke løn! Men vi skal stadig have metoden
-        pass
-```
-
-```{python}
-#| eval: false
-#| echo: true
-# Godt: Specifikke interfaces for specifikke behov
-class Arbejdende:
-    def arbejde(self):
-        pass
-
-class Spisende:
-    def spise_frokost(self):
-        pass
-
-class Lønmodtager:
-    def få_løn(self):
-        pass
-
-# Nu kan hver klasse implementere præcis hvad den har brug for
-class Menneske(Arbejdende, Spisende, Lønmodtager):
-    def arbejde(self):
-        print("Menneske arbejder")
-    
-    def spise_frokost(self):
-        print("Menneske spiser frokost")
-    
-    def få_løn(self):
-        print("Menneske får løn")
-
-class Robot(Arbejdende):
-    def arbejde(self):
-        print("Robot arbejder")
-    # Ingen tvungne ubrugte metoder!
-```
-
----
-
-D - Dependency Inversion Principle (Afhængigheds Inversions-princippet)
-Det sidste princip siger at højniveau-moduler ikke skal afhænge af lavniveau-moduler. I stedet skal begge afhænge af abstraktioner. Dette lyder teknisk, men idéen er ret simpel. Din hovedlogik skal ikke være direkte forbundet til specifikke implementeringsdetaljer.
-Forestil dig at du bygger en lysbryder i dit hus. Du vil ikke have at lysbryteren er kablet direkte til en specifik pære, fordi så skal du ændre lysbryteren hver gang du udskifter pæren. I stedet har du en standardstikforbindelse som virker med alle typer pærer.
-
-```{python}
-#| eval: false
-#| echo: true
-# Dårligt: Højniveau-klasse afhænger direkte af lavniveau-detaljer
-class EmailNotifikation:
-    def send(self, besked):
-        print(f"Sender email: {besked}")
-
-class BrugerService:
-    def __init__(self):
-        # Vi er direkte afhængige af EmailNotifikation
-        self.notifikation = EmailNotifikation()
-    
-    def registrer_bruger(self, navn):
-        print(f"Registrerer bruger: {navn}")
-        # Hvad hvis vi senere vil bruge SMS i stedet for email?
-        self.notifikation.send(f"Velkommen {navn}")
-```
-
-```{python}
-#| eval: false
-#| echo: true
-# Godt: Begge afhænger af en abstraktion
-class Notifikation:
-    """Dette er vores abstraktion"""
-    def send(self, besked):
-        pass
-
-class EmailNotifikation(Notifikation):
-    def send(self, besked):
-        print(f"Sender email: {besked}")
-
-class SMSNotifikation(Notifikation):
-    def send(self, besked):
-        print(f"Sender SMS: {besked}")
-
-class BrugerService:
-    def __init__(self, notifikation):
-        # Vi modtager en abstraktion, ikke en konkret implementation
-        self.notifikation = notifikation
-    
-    def registrer_bruger(self, navn):
-        print(f"Registrerer bruger: {navn}")
-        # Vi ved ikke om det er email eller SMS - og det er vi ligeglade med!
-        self.notifikation.send(f"Velkommen {navn}")
-
-# Nu kan vi nemt skifte mellem forskellige notifikationsmetoder
-bruger_service_email = BrugerService(EmailNotifikation())
-bruger_service_sms = BrugerService(SMSNotifikation())
-```
-
----
-
-Når du følger disse fem principper, bliver din kode meget mere fleksibel og modstandsdygtig over for ændringer. Du kan tilføje nye features uden at skulle omskrive eksisterende kode. Du kan teste hver del isoleret. Og når flere personer arbejder på samme projekt, giver SOLID principperne en fælles ramme for hvordan koden skal struktureres.
+:::
+:::
 
 ## Best Practices Tjekliste
 
-* Følges SOLID principperne? 
 * Er der klar separation of concerns?
 * Er koden DRY (ingen duplikering)?
 * Er navngivning konsistent og beskrivende?
@@ -578,40 +334,53 @@ Når du følger disse fem principper, bliver din kode meget mere fleksibel og mo
 
 ## Softwaredesign: et udviklingsperspektiv
 
-> A model of a system or process is a theoretical description that can help you understand how the system or process works, or how it might work.
+> "A model of a system or process is a theoretical description that can help you understand how the system or process works, or how it might work."
 
-## Hvorfor bruge modeller?
+* Modeller hjælper os med gradvist at formalisere et referentsystem samtidigt med at arbejdet med modellerne øger vores forståelse af referentsystemet. 
 
-Modeller hjælper os med gradvist at formalisere et referentsystem samtidigt med at arbejdet med modellerne øger vores forståelse af referentsystemet. Denne forståelse sætter os i stand til at reducere kompleksitet på en meningsfyldt måde i forhold til informationssystemets fremtidige anvendelse.
-Værd at huske:
-En model kan ikke beskrive alle væsentlige elementer af et system – bliver modellen for kompleks tjener den ikke længere sit formål.
-Modeller er redskaber til at forstå og formidle. Når vores forståelse ændrer sig må modellen også gøre det.
-Modellen er aldrig det samme som virkeligheden!
+*Værd at huske:*
 
-## UML 
+* En model kan ikke beskrive alle væsentlige elementer af et system: modellen bliver for kompleks og tjener ikke længere sit formål.
+* Modeller er redskaber til at forstå og formidle. 
 
-Unified Modelling Language (UML) beskriver mange forskellige modeltyper specifikt udviklet til software analyse og design. 
-UML modeller kan også bruges til andre ting – man vælger selv abstraktionsniveau (fra konceptuelle modeller til design modeller). Det er bl.a. det der gør dem så nyttige.
-UML er meget detaljeret beskrevet og er en standard hvorfor det også kan bruges til utvetydigt at formidle et system design mellem forretningsudviklere, designere og udviklere – på tværs af sproglige og kulturelle barrierer.
-Vis skal (kun) se på:
-Use-Cases
-Proces eller aktivitetsdiagrammer
-Klasse diagrammer
-Sekvensdiagrammer
+*Softwaremodeller:*
 
-Kort om OOA/D inden vi går i gang..
-Objekt Orienteret Analyse og Design er ….:
-Et ret stort emne – der er skrevet indtil flere bøger om emnet og det er få af dem der er tynde eller synderlig let læste…
-Grundlæggende set en made at tilpasse sit designsprog (og programmeringssprog) til problemdomænet.
-Det giver os et udvalg af redskaber til at analysere og beskrive systemer på. Disse kan efterfølgende udtrykkes som:
-UML diagrammer
-Tekstuelle beskrivelser / Analyser
-Kode (direkte repræsentation hvis sproget understøtter Objekt Orienteret programmering)
+* Når vi skal bygge et komplekst system, har vi brug for måder at visualisere og diskutere systemet uden at skulle skrive tusindvis af linjer kode først.
+* Modeller giver os et fælles sprog at tale i.
+* De hjælper os med at opdage problemer tidligt, før vi har investeret uger i at skrive kode der ikke fungerer sammen på den rigtige måde.
+
+## Objekt-Orienteret Analyse og -Design
+
+* Et ret stort emne – der er skrevet indtil flere bøger om emnet ...
+* Grundlæggende set en made at tilpasse sit designsprog (og programmeringssprog) til problemdomænet.
+* Det giver os et udvalg af redskaber til at analysere og beskrive systemer på. Disse kan efterfølgende udtrykkes som:
+    * **UML diagrammer**
+    * Tekstuelle beskrivelser / Analyser
+    * **Kode** (direkte repræsentation hvis sproget understøtter Objekt Orienteret programmering)
+
+## UML: Unified Modeling Language
+
+Link til [OMG UML](https://www.omg.org/spec/UML/2.5.1/PDF). 
+
+* Før UML eksisterede, havde forskellige virksomheder og udviklere deres egne måder at tegne softwarediagrammer på. Det var lidt som hvis hvert land havde sit eget alfabet. Det fungerede fint internt, men når folk skulle samarbejde på tværs af organisationer, opstod der forvirring. Betyder denne firkant en klasse eller en proces? Er dette en arv eller en afhængighed?
+
+I 1997 blev UML en international standard vedtaget af Object Management Group. Det betyder at når du lærer UML, lærer du et sprog der genkendes af udviklere over hele verden. En udvikler i Japan kan se dit UML diagram og forstå det, selvom I ikke taler det samme programmeringssprog eller menneskelige sprog.
+
+UML er meget omfattende og indeholder faktisk fjorten forskellige diagramtyper. Vis skal (kun) se på:
+
+* Use-Cases
+* Proces eller aktivitetsdiagrammer
+* Klasse diagrammer
+* Sekvensdiagrammer
+
+
 
 ## Use-Case diagrammer
 
-Et use-case diagram viser hvem der bruger systemet og hvad de gør med det. Lad os forestille os et simpelt bibliotekssystem:
+Et use-case diagram viser hvem der bruger systemet og hvad de gør med det. Her et simpelt bibliotekssystem:
 
+::: {style="display: flex; justify-content: center; align-items: center;"}
+::: {style="font-size: 1.0em;"}
 ```
 Låner                          Bibliotekar
       |                                |
@@ -619,23 +388,26 @@ Låner                          Bibliotekar
       |---(Søg efter bog)              |
       |                                |
       |---(Lån bog)                    |
-      |                      (Registrer ny bog)---│
+      |           (Registrer ny bog)---│
       |                                |
       |---(Aflever bog)                |
-      |                      (Administrer lånere)─│
+      |           (Administrer lånere)─│
       |                                |
       
-    Aktører                    Use Cases
 ```
+:::
+:::
 
-Beskriver aktører der interagerer med systemet (direkte og indirekte) samt de enkelte brugsscenarier hvori interaktionen foregår.
-Beskriver forskellige relationer mellem use-cases
-Særligt mellem aktør initialiseret og ikke aktør initialiseret use-cases (extend og include)
-Skelner mellem generelle og specifikke  use-case beskrivelser
-Aktører behøver ikke være mennesker – det kan også være andre systemer, devices etc. og der skelnes mellem primære og sekundære aktører.
+* Beskriver aktører der interagerer med systemet (direkte og indirekte) samt de enkelte brugsscenarier hvori interaktionen foregår.
+* Beskriver forskellige relationer mellem use-cases
+* Aktører behøver ikke være mennesker – det kan også være andre systemer, devices etc. og der skelnes mellem primære og sekundære aktører.
 
 ---
 
+Use-case diagram *udtrykt* i Python-sprog
+
+::: {style="display: flex; justify-content: center; align-items: center;"}
+::: {style="font-size: 1.0em;"}
 ```{python}
 #| eval: false
 #| echo: true
@@ -659,13 +431,17 @@ def administrer_laaner(laaner_id, handling):
     """Bibliotekar kan administrere lånere"""
     pass
 ```
+:::
+:::
 
 ## Procesdiagrammer
 
-Et procesdiagram viser skridt for skridt hvad der sker i en proces. Lad os sige vi vil vise processen for at logge ind:
+Et procesdiagram viser skridt for skridt hvad der sker i en proces. Her processen for at logge ind på et system:
 
+::: {style="display: flex; justify-content: center; align-items: center;"}
+::: {style="font-size: 1.0em;"}
 ```
-START
+    START
       │
       ▼
     [Bed om brugernavn]
@@ -694,20 +470,22 @@ START
       ▲                  │
       └──────────────────┘
 ```
+:::
+:::
 
-
-
-Procesdiagrammer nedbryder en proces i sine bestanddele. 
-Der skelnes mellem forskellige typer af elementer. Dette kunne være:
-Beslutninger
-Bruger interaktion / godkendelse
-Beregninger
-Lagering / tilstandsskifte
-Etc.
-Procesdiagrammer kan udvides med ‘swimlanes’ samt organiseres hierarkisk så nye diagrammer beskriver subprocesser etc.
+* Procesdiagrammer nedbryder en proces i sine bestanddele. 
+* Der skelnes mellem forskellige typer af elementer. Dette kunne være:
+        * Beslutninger
+        * Bruger interaktion / godkendelse
+        * Beregninger
+        * Etc.
 
 ---
 
+Procesdiagram *udtrykt* i Python-sprog
+
+::: {style="display: flex; justify-content: center; align-items: center;"}
+::: {style="font-size: 1.0em;"}
 ```{python}
 #| eval: false
 #| echo: true
@@ -738,13 +516,17 @@ def log_ind():
     print("For mange fejlslagne forsøg. Prøv igen senere.")
     return False
 ```
+:::
+:::
 
 ## Klassediagrammer
 
-Et klassediagram viser de klasser vi har i vores program og hvordan de hænger sammen. Her er et eksempel med et simpelt skole-system:
+Et klassediagram viser de klasser vi har i vores program og hvordan de hænger sammen. Her et eksempel med et simpelt skole-system:
 
+::: {style="display: flex; justify-content: center; align-items: center;"}
+::: {style="font-size: 1.0em;"}
 ```
-┌──────────────────┐
+    ┌──────────────────┐
     │     Person       │
     ├──────────────────┤
     │ - navn: str      │
@@ -765,16 +547,21 @@ Et klassediagram viser de klasser vi har i vores program og hvordan de hænger s
     │+ studer()│ │+ undervis│
     └──────────┘ └──────────┘
 ```
+:::
+:::
 
-Beskriver de klasser af elementer (objekter) som systemet består af samt deres:
-Indbygget Data (properties)
-Indbygget Funktionalitet (Methods)
-Relationer til hinanden (generalization, aggregation, dependancy & composition)
-Abstraktionsniveau (abstract)
-Tilgængelighed (public, private & protected)
+* Beskriver de klasser af elementer (objekter) som systemet består af samt deres:
+    * Indbygget Data (**properties**)
+    * Indbygget Funktionalitet (**Methods**)
+    * Relationer til hinanden (**generalization**, **aggregation**, **dependancy** & **composition**)
+    * Tilgængelighed (**public**, **private** & **protected**)
 
 ---
 
+Klassediagram *udtrykt* i Python-sprog
+
+::: {style="display: flex; justify-content: center; align-items: center;"}
+::: {style="font-size: 1.0em;"}
 ```{python}
 #| eval: false
 #| echo: true
@@ -812,40 +599,46 @@ peter = Laerer("Peter Hansen", 45, "Matematik")
 anna.studer("Matematik")  # Output: Anna studerer Matematik
 peter.undervis()  # Output: Peter Hansen underviser i Matematik
 ```
+:::
+:::
 
 ## Sekvensdiagrammer
 
-Et sekvensdiagram viser hvordan forskellige dele af programmet kommunikerer over tid. Forestil dig at en elev logger ind og ser sine karakterer:
+Et sekvensdiagram viser hvordan forskellige dele af programmet kommunikerer over tid. Her en elev, der logger ind og ser sine karakterer:
 
+::: {style="display: flex; justify-content: center; align-items: center;"}
+::: {style="font-size: 1.0em;"}
 ```
-Bruger          System          Database
-  │               │                │
-  │──login()─────>│                │
-  │               │                │
-  │               │──hent_bruger()->│
-  │               │<───bruger_data─┤
-  │               │                │
-  │<──velkomst────┤                │
-  │               │                │
-  │─vis_karakterer>│                │
-  │               │──hent_karakterer()─>│
-  │               │<───karakter_liste───┤
-  │               │                │
-  │<──karakterer──┤                │
-  │               │                │
+Bruger           System               Database
+  │                │                     │
+  │──login()──────>│                     │
+  │                │                     │
+  │                │──hent_bruger()─────>│
+  │                │<───bruger_data──────┤
+  │                │                     │
+  │<──velkomst─────┤                     │
+  │                │                     │
+  │─vis_karakterer>│                     │
+  │                │──hent_karakterer()─>│
+  │                │<───karakter_liste───┤
+  │                │                     │
+  │<──karakterer───┤                     │
+  │                │                     │
 ```
+:::
+:::
 
-Dette viser at når brugeren kalder login, kommunikerer systemet med databasen for at hente brugerdata, returnerer en velkomst til brugeren, og når brugeren beder om karakterer, henter systemet dem fra databasen og viser dem.
-
-
-Beskriver kommunikationen mellem systemets væsentlige elementer
-Viser hvornår disse elementer eller subsystemer er aktive – som overblik
-Viser ‘levetiden’ for hvert element eller subsystem.
-Lister kommunikation sekventielt 
-Skelner mellem signaler der oprinder hos et bestemt subsystem og signaler som er reaktioner på andre signaler.
+* Beskriver kommunikationen mellem systemets væsentlige elementer
+* Viser hvornår disse elementer eller subsystemer er aktive 
+* Lister kommunikation sekventielt 
+* Skelner mellem signaler der oprinder hos et bestemt subsystem og signaler som er reaktioner på andre signaler.
 
 ---
 
+Sekvensdiagram *udtrykt* i Python-sprog
+
+::: {style="display: flex; justify-content: center; align-items: center;"}
+::: {style="font-size: 1.0em;"}
 ```{python}
 #| eval: false
 #| echo: true
@@ -891,86 +684,12 @@ class Database:
         # Simulerer database opslag
         pass
 ```
+:::
+:::
 
-# Workshop II (+III +IIII +V)
+# Mini-projekter 
 
-> En lille skole har brug for at administrere deres 50 elever og 8 lærere. De skal kunne se hvem der underviser i hvilke fag, hvilke elever der er i hvilke klasser, og kunne kontakte relevante personer hurtigt. Tidligere brugte de bare en Excel-ark, men det blev hurtigt uoverskueligt.
-
-* **I skal lave en tilsvarende problemformulering, der afgrænser formålet med jeres program.** 
-
-## Del 1: Fra personliste til skolesystem
-
-Første konkrete opgave er at oprette en Lærer-klasse der kan håndtere at en lærer underviser i specifikke fag.
-
-1. ***Lærerklassen***: Vi implementerer Lærer-klassen med en liste af fag de kan undervise i, plus deres kontaktinformation som email og telefonnummer.
-    * properties for email-validering
-    * En property på email kan tjekke at der er et @-tegn og et domæne, hvilket beskytter systemet mod dårlig data.
-    * **FORMÅL**: Se at `properties` ikke bare er "pæn syntaks", men aktiv "beskyttelse" af data-integritet i systemer hvor dårlig data kan have konsekvenser og forstå at `arv` giver her mening fordi både Elev og Lærer deler grundlæggende persondata, men har forskellige roller og behov.
-
----
-
-Næste problem er at skolen skal kunne danne klasser for det nye skoleår.
-
-2. ***Skoleklasse***: Når en ny klasse oprettes, skal den have et navn som "7A", et klasselokale, en klasselærer, og kunne tilføje elever. Skolen skal kunne printe klasselister og se om en klasse er fuld. 
-    * Oprettelse af Skoleklasse-klasse der indeholder en liste af Elev-objekter og en reference til en Lærer-objekt som klasselærer. Klassen får metoder som `tilføj_elev()`, `fjern_elev()`, og `er_fuld()`.
-    * **Komposition** i praksis: en Skoleklasse "ejer" ikke elever, men har en relation til dem.
-    * Forskellen mellem at gemme en reference til et objekt versus at kopiere data: Når man tilføjer en elev til en klasse, tilføjer man en reference, så hvis elevens information opdateres ét sted, reflekteres det alle steder. Dette er sådan virkeligheden fungerer: når "Marias" informationer ændres i systemet, skal det være opdateret både i klassen 7A's liste og i den overordnede elevdatabase.
-    * **FORMÅL**: Forstå forskellen mellem værdityper og referencer, og hvordan objekter kan organisere andre objekter uden at eje dem. Se værdien af at have en klasse til at håndtere forretningslogik (som "er klassen fuld?").
-
-
----
-
-Det tredje problem er mere subtilt. Skolen har opdaget at når de indtaster elever, sker der fejl - for eksempel at en elev får tildelt klassetrin "10" men samtidig er 12 år gammel, hvilket er usandsynligt. De har også brug for at kunne søge efter elever baseret på forskellige kriterier.
-
-3. ***Validering***: Udvid Elev-klassen med properties for klassetrin og skole. 
-    * Systemet giver en advarsel hvis alder og klassetrin ikke matcher typiske mønstre.
-    * Køn accepterer specifikke værdier eller giver mulighed for selvdefinering.
-    * Tilføjer også en søg_metode funktion der kan finde elever baseret på forskellige kriterier. Dette forbereder jer til repository-pattern i næste workshop.
-    * **FORMÅL**: Se at validering handler om data-kvalitet og konsistens. Forstå at encapsulation ikke bare handler om at "gemme" data, men om at sikre at objekter altid er i en gyldig tilstand. 
-
-
-## Del 2: Fleksibilitet gennem abstraktion
-
-Skolen vil nu også administrere administrativt personale (rektor, sekretær, vicerektor). Disse personer skal også kunne logge ind i systemet, have kontaktinfo, men har helt andre rettigheder og opgaver end lærere og elever.
-
-1. Fælles interface gennem ***abstrakt basisklasse***: Menu-systemet skal kunne håndtere mange forskellige typer af personer, og hver type skal kunne "præsentere sig selv" forskelligt når man viser dem. En elev skal vise deres klasse, en lærer deres fag, og en administrator deres ansvarområde.
-    * Oprettelse af en abstrakt Rolle basisklasse (eller bruger ABC fra Pythons standard library) med abstrakte metoder som vis_info(), beskriv_rolle(), og hent_kontakt_info(). Person-klassen arver nu fra Rolle, og både Elev, Lærer og en ny Administrator-klasse skal implementere disse metoder på deres egen måde.
-    * Vores menu-funktion "Vis alle personer" kan nu bare iterere gennem en liste af Rolle-objekter og kalde vis_info() på hver, uden at bekymre sig om hvilken konkret type det er. Dette er polymorfi i praksis - én interface, mange implementationer.
-    * **FORMÅL**: Forstå hvordan abstraktion gør koden fleksibel og udvidelsesvenlig. 
-        * (Når skolen senere vil tilføje forældre til systemet, skal de bare oprette en Forælder-klasse der implementerer Rolle-interfacet, og resten af koden fortsætter med at virke uden ændringer.)
-
----
-
-Tredje problem er at skolen vil kunne filtrere og søge på mange forskellige måder - find alle elever i 7. klasse, find alle lærere der underviser matematik, find alle der bor i Aalborg, osv.
-
-2. ***Polymorfi i filtreringssystemet***: bygger et filtreringssystem hvor I opretter en abstrakt Filter klasse med en matcher() metode. Derefter laver I konkrete filtre som AldersFilter, KlasseFilter, FagFilter osv. Jeres søgefunktion tager en liste af filtre og returnerer alle personer der matcher alle filtrene.
-    * Det elegante er at I nu kan kombinere filtre frit - "find alle elever i 7A der er over 13 år" er bare at sende to filtre med. Og når skolen senere vil kunne filtrere på noget nyt, laver de bare et nyt filter uden at røre ved søgefunktionen.
-    * **FORMÅL**: Se et konkret eksempel på Open/Closed Principle (åben for udvidelse, lukket for modifikation). Systemet kan udvides med nye filtre uden at ændre eksisterende kode. 
-
-
-## Del 3: Professionel arkitektur
-
-Systemet bruges nu af tre forskellige skoler, og flere udviklere arbejder på koden. Main-funktionen er vokset til 300 linjer og er blevet uoverskuelig. Nye features tager lang tid at implementere fordi koden er tæt sammenvævet. Bugs opstår fordi én ændring påvirker uventede dele af systemet.
-
-1. ***Command pattern for menu-handlinger***: Det konkrete problem er den massive main-funktion. Hver menu-handling er en lang if-else blok med blandet logik for input-håndtering, validering, forretningslogik, og output.
-    * introducerer Command pattern ved at lave en abstrakt MenuCommand klasse med en udfør() metode. Hver menu-handling bliver sin egen klasse - TilføjPersonCommand, VisAlleCommand, OpretKlasseCommand, TildekFagCommand osv. Hver command-klasse har sin egen logik og kan nemt testes isoleret.
-    * **FORMÅL**: Forstå Single Responsibility Principle - hver klasse har præcis ét ansvar og se hvordan opdeling i små klasser faktisk gør koden lettere at overskue, ikke sværere. 
-
----
-
-2. ***Fuld refaktorering***: Info følger 
-
-
-## Dagens fokus 
-
-* Tilføj nye klasser til vores system (OOP: arv, indkapsling, validering, komposition, referencer)
-* Diskussion af **brugen af AI i en udviklingsprocess** 
-    * Hvor er det meningsfuldt som et **værktøj** 
-    * Hvor er der "ricisi" ved ikke selv at have fingrene på tasteturet og *se* hvad der bliver implementeret
-    * Hvad er *forudsætningerne* for overhovedet at lave en meningsfuld prompt til at hjælpe i kodningen
-
-
----
+## Dagens (første) fokus: 1 time 
 
 ```{python}
 #| eval: false
@@ -1138,3 +857,81 @@ if __name__ == "__main__":
     main()
 
 ```
+
+## Dagens (andet) fokus: resten af dagen ... 
+
+* Introduktion til resten af workshop-forløbet
+* Tilføj nye klasser til vores system (OOP: arv, indkapsling, validering, komposition, referencer)
+* Diskussion af **brugen af AI i en udviklingsprocess** 
+    * Hvor er det meningsfuldt som et **værktøj** 
+    * Hvor er der "ricisi" ved ikke selv at have fingrene på tasteturet og *se* hvad der bliver implementeret
+    * Hvad er *forudsætningerne* for overhovedet at lave en meningsfuld prompt til at hjælpe i kodningen
+
+## Workshop II (+III +IIII +V)
+
+> En lille skole har brug for at administrere deres $N$ elever og $N$ lærere. De skal kunne se hvem der underviser i hvilke fag, hvilke elever der er i hvilke klasser, og kunne kontakte relevante personer hurtigt. Tidligere brugte de bare et Excel-ark, men det blev hurtigt uoverskueligt.
+
+* **I skal lave en tilsvarende problemformulering, der afgrænser formålet med jeres program.** 
+
+## Del 1: Fra personliste til skolesystem
+
+Vi tager afsæt i registreringsprogrammet fra *Workshop I*, der kan registrere `personer` (fx en årgang af børn) og registrere disser personer til `elever`. Første konkrete udvidelse af dette system er at oprette en `Lærer-klasse` der kan håndtere at en lærer underviser i specifikke fag.
+
+1. ***Lærerklassen***: Vi implementerer `Lærer-klassen` med en liste af fag de kan undervise i, plus deres kontaktinformation (email og telefonnummer).
+    * `properties` for email-validering
+    * En property på email kan tjekke at der er et "@"-tegn og et domæne, hvilket beskytter systemet mod "dårlig" data.
+    * **FORMÅL**: Se at `properties` ikke bare er "pæn syntaks", men aktiv "beskyttelse" af data-integritet i systemer hvor dårlig data kan have konsekvenser og forstå at `arv` her giver mening fordi både `Elev` og `Lærer` deler grundlæggende persondata, men har forskellige roller og behov.
+
+---
+
+Næste problem er at skolen skal kunne danne klasser for det nye skoleår.
+
+2. ***Skoleklasse***: Når en ny klasse oprettes, skal den have et navn (fx "7A"), et klasselokale, en klasselærer, og skal kunne tilføje elever. Skolen skal kunne `printe` klasselister og se om en klasse er fuld. 
+    * Oprettelse af Skoleklasse-klasse der indeholder en liste af Elev-objekter og en reference til en Lærer-objekt som klasselærer. Klassen får metoder som `tilføj_elev()`, `fjern_elev()`, og `er_fuld()`.
+    * **Komposition** i praksis: en Skoleklasse "ejer" ikke elever, men har en relation til dem.
+    * Forskellen mellem at gemme en **reference** til et objekt versus at kopiere data: Når man tilføjer en elev til en klasse, tilføjer man en reference, så hvis elevens information opdateres ét sted, reflekteres det alle steder. 
+    * **FORMÅL**: Forstå forskellen mellem `værdityper` og `referencer`, og hvordan objekter kan organisere andre objekter uden at eje dem. Se værdien af at have en klasse til at håndtere forretningslogik (som "er klassen fuld?").
+
+
+---
+
+Det tredje problem er mere subtilt. Skolen har opdaget at når de indtaster elever, sker der en fejl: En elev kan får tildelt klassetrin "10" selvom eleven kun er 12 år gammel, hvilket er usandsynligt. De har også brug for at kunne søge efter elever baseret på forskellige kriterier.
+
+3. ***Validering***: Udvid `Elev-klassen` med properties for klassetrin og skole. 
+    * Systemet giver en advarsel hvis alder og klassetrin ikke matcher typiske mønstre.
+    * Køn accepterer specifikke værdier eller giver mulighed for selvdefinering.
+    * Tilføjer også en `søg_metode` der kan finde elever baseret på forskellige kriterier. 
+    * **FORMÅL**: Se at `validering` handler om data-kvalitet og konsistens. Forstå at `encapsulation` ikke bare handler om at "gemme" data, men om at sikre at objekter altid er i en gyldig tilstand. 
+
+
+## Del 2: Fleksibilitet gennem abstraktion
+
+Skolen vil nu også administrere administrativt personale (rektor, sekretær, vicerektor). Disse personer skal også kunne logge ind i systemet, have kontaktinfo, men har andre `rettigheder` og opgaver end lærere og elever.
+
+1. Fælles interface gennem ***abstrakt basisklasse***: Menu-systemet skal kunne håndtere mange forskellige typer af personer, og hver type skal kunne "præsentere sig selv" forskelligt når man viser dem. En elev skal vise deres klasse, en lærer deres fag, og en administrator deres ansvarområde.
+    * Oprettelse af en abstrakt `Rolle` basisklasse med `abstrakte metoder` som `vis_info()`, `beskriv_rolle()`, og `hent_kontakt_info()`. `Person-klassen` arver nu fra `Rolle`, og både `Elev`, `Lærer` og en ny `Administrator`-klasse skal implementere disse metoder på deres egen måde.
+    * Menu-funktionen "Vis alle personer" kan nu iterere gennem en liste af Rolle-objekter og kalde vis_info() på hver, uden at bekymre sig om hvilken konkret type det er. Dette er `polymorfi` i praksis: Ét interface, mange implementationer.
+    * **FORMÅL**: Forstå hvordan `abstraktion` gør koden fleksibel og udvidelsesvenlig. 
+        * (Når skolen senere vil tilføje forældre til systemet, skal de bare oprette en Forælder-klasse der implementerer Rolle-interfacet, og resten af koden fortsætter med at virke uden ændringer.)
+
+---
+
+Nøste problem er at skolen vil kunne filtrere og søge på mange forskellige måder. (Fx finde alle elever i 7. klasse, finde alle lærere der underviser matematik, finde alle der bor i Aalborg, osv.)
+
+2. ***Polymorfi i filtreringssystemet***: bygger et filtreringssystem, der opretter en abstrakt `Filter` klasse med en `matcher()` metode. Derefter lave konkrete filtre som `AldersFilter`, `KlasseFilter`, `FagFilter` osv. Søgefunktionen tager en liste af filtre og returnerer alle personer der matcher alle filtrene.
+    * **FORMÅL**: Se et konkret eksempel på `Open/Closed Principle` (åben for udvidelse, lukket for modifikation). Systemet kan udvides med nye filtre uden at ændre eksisterende kode. 
+
+
+## Del 3: Professionel arkitektur
+
+Systemet bruges nu af tre forskellige skoler, og flere udviklere arbejder på koden. `Main`-funktionen er vokset til 300 linjer og er blevet uoverskuelig. Nye features tager lang tid at implementere fordi koden er tæt sammenvævet. `Bugs` opstår fordi én ændring påvirker uventede dele af systemet.
+
+1. ***Command pattern for menu-handlinger***: Det konkrete problem er den massive main-funktion. Hver menu-handling er en lang if-else blok med blandet logik for input-håndtering, validering, forretningslogik, og output.
+    * `Command pattern` anvendes ved at lave en abstrakt `MenuCommand` klasse med en `udfør()` metode. Hver menu-handling bliver sin egen klasse: `TilføjPersonCommand`, `VisAlleCommand`, `OpretKlasseCommand`, `TildelFagCommand` osv.
+    * **FORMÅL**: Forstå `Single Responsibility Principle`: hver klasse har præcis ét ansvar og se hvordan opdeling i små klasser faktisk gør koden lettere at overskue, ikke sværere. 
+
+---
+
+2. ***Fuld refaktorering***: *Info følger ...*
+
+
