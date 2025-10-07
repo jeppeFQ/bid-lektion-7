@@ -362,18 +362,14 @@ class Person:
 
 Link til [OMG UML](https://www.omg.org/spec/UML/2.5.1/PDF). 
 
-* Før UML eksisterede, havde forskellige virksomheder og udviklere deres egne måder at tegne softwarediagrammer på. Det var lidt som hvis hvert land havde sit eget alfabet. Det fungerede fint internt, men når folk skulle samarbejde på tværs af organisationer, opstod der forvirring. Betyder denne firkant en klasse eller en proces? Er dette en arv eller en afhængighed?
+* Før UML eksisterede, havde forskellige virksomheder og udviklere deres egne måder at tegne softwarediagrammer på. Det var lidt som hvis hvert land havde sit eget alfabet. Det fungerede fint internt, men når folk skulle samarbejde på tværs af organisationer, opstod der forvirring. 
 
-I 1997 blev UML en international standard vedtaget af Object Management Group. Det betyder at når du lærer UML, lærer du et sprog der genkendes af udviklere over hele verden. En udvikler i Japan kan se dit UML diagram og forstå det, selvom I ikke taler det samme programmeringssprog eller menneskelige sprog.
-
-UML er meget omfattende og indeholder faktisk fjorten forskellige diagramtyper. Vis skal (kun) se på:
+UML er meget omfattende og indeholder fjorten forskellige diagramtyper. Vis skal (kun) se på:
 
 * Use-Cases
 * Proces eller aktivitetsdiagrammer
 * Klasse diagrammer
 * Sekvensdiagrammer
-
-
 
 ## Use-Case diagrammer
 
@@ -400,7 +396,6 @@ Låner                          Bibliotekar
 
 * Beskriver aktører der interagerer med systemet (direkte og indirekte) samt de enkelte brugsscenarier hvori interaktionen foregår.
 * Beskriver forskellige relationer mellem use-cases
-* Aktører behøver ikke være mennesker – det kan også være andre systemer, devices etc. og der skelnes mellem primære og sekundære aktører.
 
 ---
 
@@ -474,11 +469,6 @@ Et procesdiagram viser skridt for skridt hvad der sker i en proces. Her processe
 :::
 
 * Procesdiagrammer nedbryder en proces i sine bestanddele. 
-* Der skelnes mellem forskellige typer af elementer. Dette kunne være:
-        * Beslutninger
-        * Bruger interaktion / godkendelse
-        * Beregninger
-        * Etc.
 
 ---
 
@@ -550,11 +540,13 @@ Et klassediagram viser de klasser vi har i vores program og hvordan de hænger s
 :::
 :::
 
+::: {style="font-size: 0.6em;"}
 * Beskriver de klasser af elementer (objekter) som systemet består af samt deres:
     * Indbygget Data (**properties**)
     * Indbygget Funktionalitet (**Methods**)
     * Relationer til hinanden (**generalization**, **aggregation**, **dependancy** & **composition**)
     * Tilgængelighed (**public**, **private** & **protected**)
+:::
 
 ---
 
@@ -628,10 +620,12 @@ Bruger           System               Database
 :::
 :::
 
+::: {style="font-size: 0.7em;"}
 * Beskriver kommunikationen mellem systemets væsentlige elementer
 * Viser hvornår disse elementer eller subsystemer er aktive 
 * Lister kommunikation sekventielt 
 * Skelner mellem signaler der oprinder hos et bestemt subsystem og signaler som er reaktioner på andre signaler.
+:::
 
 ---
 
